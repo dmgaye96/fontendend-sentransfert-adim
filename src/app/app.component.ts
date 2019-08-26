@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AppService } from './services/app.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { AppService } from './services/app.service';
 export class AppComponent {
   title = 'pro-dashboard-angular';
 
-  constructor(private appService: AppService) {}
+  constructor(private appService: AppService , private authService:AuthService) {}
   getClasses() {
     const classes = {
       'pinned-sidebar': this.appService.getSidebarStat().isSidebarPinned,
@@ -19,5 +20,24 @@ export class AppComponent {
   }
   toggleSidebar() {
     this.appService.toggleSidebar();
+  }
+   isAdmin(){
+    return this.authService.isAdmin();
+  }
+
+  isUser(){
+    return this.authService.isUser();
+  }
+
+  isAdminP(){
+    return this.authService.isAdminP();
+  }
+
+  isCaissier(){
+    return this.authService.isCaissier();
+  }
+
+  isAuthenticated(){
+    return this.authService.isAuthenticated()
   }
 }

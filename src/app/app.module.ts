@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { ToastrModule } from 'ngx-toastr';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -25,6 +24,11 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { SidebarcaissierComponent } from './components/sidebarcaissier/sidebarcaissier.component';
 import { DepotComponent } from './depot/depot.component';
+import { SidebaradminpComponent } from './components/sidebaradminp/sidebaradminp.component';
+import { SidebaruserComponent } from './components/sidebaruser/sidebaruser.component';
+import { EnvoiComponent } from './envoi/envoi.component';
+import { RetraitComponent } from './retrait/retrait.component';
+import { AdduserComponent } from './adduser/adduser.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +46,12 @@ import { DepotComponent } from './depot/depot.component';
     SignupComponent,
     RegisterComponent,
     SidebarcaissierComponent,
-    DepotComponent
+    DepotComponent,
+    SidebaradminpComponent,
+    SidebaruserComponent,
+    EnvoiComponent,
+    RetraitComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,
