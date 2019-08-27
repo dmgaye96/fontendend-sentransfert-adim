@@ -18,20 +18,20 @@ import { RetraitComponent } from './retrait/retrait.component';
 
 const routes: Routes = [
 
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'forms', component: FormsComponent},
-  { path: 'tables', component: TablesComponent},
-  { path: 'typography', component: TypographyComponent},
+  { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent},
+  { path: 'forms', canActivate: [AuthGuardService], component: FormsComponent},
+  { path: 'tables',canActivate: [AuthGuardService] , component: TablesComponent},
+  { path: 'typography', canActivate: [AuthGuardService], component: TypographyComponent},
   { path: 'maps', component: MapsComponent},
-  { path: 'notifications', component: NotificationsComponent},
-  { path: 'auth/signup', component:  SignupComponent },
+  { path: 'notifications', canActivate: [AuthGuardService], component: NotificationsComponent},
+  { path: 'auth/signup',  component:  SignupComponent },
   { path: 'auth/signin', component:  SigninComponent},
-  { path: 'depot' , component: DepotComponent },
-  { path: 'register', component : RegisterComponent },
-  { path: 'envoi', component : EnvoiComponent},
-  { path: 'retrait' , component : RetraitComponent},
-  { path: 'adduser' , component : AdduserComponent},
-  { path: '**' , redirectTo : 'auth/signin'},
+  { path: 'depot' ,canActivate: [AuthGuardService], component: DepotComponent },
+  { path: 'register', canActivate: [AuthGuardService], component : RegisterComponent },
+  { path: 'envoi', canActivate: [AuthGuardService],component : EnvoiComponent},
+  { path: 'retrait' , canActivate: [AuthGuardService], component : RetraitComponent},
+  { path: 'adduser' , canActivate: [AuthGuardService], component : AdduserComponent},
+  { path: '**' , redirectTo : 'auth/signin',pathMatch: 'full'},
   { path: '',   redirectTo: 'auth/signin', pathMatch: 'full'},
 
 

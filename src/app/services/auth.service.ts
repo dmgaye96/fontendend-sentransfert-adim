@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -13,7 +14,7 @@ jwt:string;
 username:string;
 roles:Array<string>;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient , private router: Router) { }
 
   login(data){
     return this.http.post(this.host ,data,{observe: 'response'});
@@ -52,5 +53,25 @@ roles:Array<string>;
   }
   isAuthenticated(){
    return this.roles &&( this.isAdmin() || this.isUser() || this.isAdminP() || this.isCaissier() );
+  }
+  loadToken(){
+    this.jwt=localStorage.getItem('token');
+    this.parseJWT();
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token')
+  }
+  logout(){
+    localStorage.removeItem('token');
+   this.initParams();
+  
+  }
+
+  initParams(){
+    this.jwt=undefined;
+    this.username=undefined;
+    this.roles=undefined;
+
   }
 }
