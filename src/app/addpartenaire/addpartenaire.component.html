@@ -1,0 +1,80 @@
+<div class="wrapper default-theme">
+    <app-navbar></app-navbar>
+    <main>
+      <app-sidebar></app-sidebar>
+      <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+        <h4 class="mb-4 text-muted"> Ajouter un Partenaire </h4>
+
+
+    <div class="row">
+        <div class="col-md-12 mb-4 ">
+
+          <div class="card border-0 rounded-0">
+            <div class="card-body">
+              <form>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">NINEA</label>
+                  <input type="texte" class="form-control  rounded-0" name="ninea" id="exampleFormControlInput1"
+                    placeholder="name@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Nom du Partenaire</label>
+                  <input type="texte" class="form-control rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="raisonsociale">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Address</label>
+                  <input type="texte" class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="adresse" >
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Telephone</label>
+                  <input type="number" class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="telephone">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Email address</label>
+                  <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Nom complet de l'Admine</label>
+                  <input type="name" class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="nomcomplet">
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Login</label>
+                  <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="name@example.com" name="login">
+                </div>
+                <div class="form-group">
+                  <label>Password</label>
+                  <div class="custom-file">
+                    <input type="password" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label rounded-0" for="customFile">Password</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label>Photo</label>
+                  <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="customFile">
+                    <label class="custom-file-label rounded-0" for="customFile">Photo</label>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <router-outlet></router-outlet>
+        <hr>
+        <app-footer></app-footer>
+      </div>
+      <div class="overlay" ></div>
+    </main>
+  </div>

@@ -29,6 +29,7 @@ import { SidebaruserComponent } from './components/sidebaruser/sidebaruser.compo
 import { EnvoiComponent } from './envoi/envoi.component';
 import { RetraitComponent } from './retrait/retrait.component';
 import { AdduserComponent } from './adduser/adduser.component';
+import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { AdduserComponent } from './adduser/adduser.component';
     SidebaruserComponent,
     EnvoiComponent,
     RetraitComponent,
-    AdduserComponent
+    AdduserComponent,
+    AddpartenaireComponent
   ],
   imports: [
     BrowserModule,

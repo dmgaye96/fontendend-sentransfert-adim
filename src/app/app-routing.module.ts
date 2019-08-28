@@ -14,6 +14,7 @@ import { DepotComponent } from './depot/depot.component';
 import { EnvoiComponent } from './envoi/envoi.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { RetraitComponent } from './retrait/retrait.component';
+import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
 
 
 const routes: Routes = [
@@ -31,8 +32,9 @@ const routes: Routes = [
   { path: 'envoi', canActivate: [AuthGuardService],component : EnvoiComponent},
   { path: 'retrait' , canActivate: [AuthGuardService], component : RetraitComponent},
   { path: 'adduser' , canActivate: [AuthGuardService], component : AdduserComponent},
-  { path: '**' , redirectTo : 'auth/signin',pathMatch: 'full'},
-  { path: '',   redirectTo: 'auth/signin', pathMatch: 'full'},
+  { path: 'addpartenaire' , canActivate: [AuthGuardService],component:AddpartenaireComponent},
+  { path: '**' ,component: SigninComponent},
+  { path: '',  component: SigninComponent},
 
 
 ];
