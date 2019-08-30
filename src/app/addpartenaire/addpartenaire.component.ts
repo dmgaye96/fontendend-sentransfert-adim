@@ -12,4 +12,9 @@ export class AddpartenaireComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSavepart(data){
+    console.log(data);
+
+  }
+
 }

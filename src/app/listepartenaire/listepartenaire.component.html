@@ -1,0 +1,43 @@
+<div class="wrapper default-theme">
+  <app-navbar></app-navbar>
+  <main>
+    <app-sidebar></app-sidebar>
+    <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
+      <h4 class="mb-4 text-muted">Listes des parternaire</h4>
+
+
+  <div class="row">
+      <div class="col-md-12 mb-4 ">
+          <div  >
+        <table #dataTable class="display" style="width:100%">
+          <thead>
+              <tr>
+                  <th>Nom</th>
+                  <th>NINEA</th>
+                  <th>Adresse</th>
+                  <th>Statut</th>
+              </tr>
+          </thead >
+          <tbody>
+              <tr *ngFor="let partenaires of partenaire" >
+                  <td >{{partenaires.raisonsociale}}</td>
+                  <td>{{partenaires.ninea}}</td>
+                  <td>{{partenaires.adresse}}</td>
+                  <td>{{partenaires.statut}}</td>
+              </tr>
+
+          </tbody>
+      </table>
+    </div>
+
+      </div>
+    </div>
+
+      <router-outlet></router-outlet>
+      <hr>
+      <app-footer></app-footer>
+    </div>
+    <div class="overlay" ></div>
+  </main>
+</div>
+

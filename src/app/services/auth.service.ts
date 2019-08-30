@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+
 
 
 @Injectable({
@@ -9,7 +11,9 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
+
  host: string = "http://localhost:8000/api/login";
+
 jwt:string;
 username:string;
 roles:Array<string>;
@@ -19,12 +23,14 @@ roles:Array<string>;
   login(data){
     return this.http.post(this.host ,data,{observe: 'response'});
   }
-  saveToken(jwt :string){
-    localStorage.setItem('token',jwt);
-    this.jwt=jwt;
+   saveToken(jwt :any){
+    localStorage.setItem("token" ,jwt['token']);
+
+    this.jwt=jwt['token'];
     this.parseJWT();
 
   }
+
   parseJWT(){
     let jwtHelper= new JwtHelperService();
     let objJWT=jwtHelper.decodeToken(this.jwt);
@@ -32,8 +38,11 @@ roles:Array<string>;
     this.username=objJWT.obj;
 
     this.roles=objJWT.roles;
+  }
 
+  getToken() {
 
+    return localStorage.getItem('token')
   }
 
   isAdmin(){
@@ -46,7 +55,6 @@ roles:Array<string>;
     isAdminP(){
       return this.roles.indexOf('ROLE_ADMINP')>=0;
       }
-
 
   isUser(){
     return this.roles.indexOf('ROLE_USER')>=0;
@@ -65,13 +73,16 @@ roles:Array<string>;
   logout(){
     localStorage.removeItem('token');
    this.initParams();
-  
+
   }
+
 
   initParams(){
     this.jwt=undefined;
-    this.username=undefined;
+  //  this.username=undefined;
     this.roles=undefined;
+}
 
-  }
+
+
 }

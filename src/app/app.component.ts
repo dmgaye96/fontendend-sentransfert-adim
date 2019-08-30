@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() : void {
-    this.authService.loadToken();
+  //  this.authService.loadToken();
 
   }
    isAdmin(){

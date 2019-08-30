@@ -7,7 +7,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthService } from './services/auth.service';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule} from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
@@ -30,6 +30,10 @@ import { EnvoiComponent } from './envoi/envoi.component';
 import { RetraitComponent } from './retrait/retrait.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
+import { ListepartenaireComponent } from './listepartenaire/listepartenaire.component';
+import { AddcompteComponent } from './addcompte/addcompte.component';
+
+
 
 @NgModule({
   declarations: [
@@ -53,7 +57,10 @@ import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component'
     EnvoiComponent,
     RetraitComponent,
     AdduserComponent,
-    AddpartenaireComponent
+    AddpartenaireComponent,
+    ListepartenaireComponent,
+    AddcompteComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,7 @@ import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component'
     CollapseModule.forRoot(),
     ToastrModule.forRoot()
     ],
-  providers: [AuthService, AuthGuardService],
+  providers: [AuthService, AuthGuardService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

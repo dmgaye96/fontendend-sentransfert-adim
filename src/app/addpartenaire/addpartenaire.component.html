@@ -11,53 +11,52 @@
 
           <div class="card border-0 rounded-0">
             <div class="card-body">
-              <form>
+              <form  #f="ngForm" (ngSubmit)="onSavepart(f.value)" >
                 <div class="form-group">
                   <label for="exampleFormControlInput1">NINEA</label>
                   <input type="texte" class="form-control  rounded-0" name="ninea" id="exampleFormControlInput1"
-                    placeholder="name@example.com">
+                    placeholder="NINEA" ngModel >
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nom du Partenaire</label>
                   <input type="texte" class="form-control rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="raisonsociale">
+                    placeholder="name@example.com" name="raisonsociale"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Address</label>
                   <input type="texte" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="adresse" >
+                    placeholder="Adresse" name="adresse"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Telephone</label>
                   <input type="number" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="telephone">
+                    placeholder="Telephone" name="telephone"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Email address</label>
                   <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="email">
+                    placeholder="name@example.com" name="email"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nom complet de l'Admine</label>
                   <input type="name" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="nomcomplet">
+                    placeholder="Nom complet de l'Admine" name="nom"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Login</label>
                   <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="login">
+                    placeholder="Login" name="login"  ngModel>
                 </div>
                 <div class="form-group">
-                  <label>Password</label>
-                  <div class="custom-file">
-                    <input type="password" class="custom-file-input" id="customFile">
-                    <label class="custom-file-label rounded-0" for="customFile">Password</label>
+                    <label for="exampleFormControlInput1">Password</label>
+                    <input type="password" class="form-control  rounded-0" id="exampleFormControlInput1"
+                      placeholder="Password" name="password"  ngModel>
                   </div>
-                </div>
+
                 <div class="form-group">
                   <label>Photo</label>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile">
+                    <input type="file" class="custom-file-input" id="customFile"  name="image_name"  ngModel>
                     <label class="custom-file-label rounded-0" for="customFile">Photo</label>
                   </div>
                 </div>

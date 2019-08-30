@@ -15,6 +15,9 @@ import { EnvoiComponent } from './envoi/envoi.component';
 import { AdduserComponent } from './adduser/adduser.component';
 import { RetraitComponent } from './retrait/retrait.component';
 import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
+import { ListepartenaireComponent } from './listepartenaire/listepartenaire.component';
+import { AddcompteComponent } from './addcompte/addcompte.component';
+
 
 
 const routes: Routes = [
@@ -32,9 +35,11 @@ const routes: Routes = [
   { path: 'envoi', canActivate: [AuthGuardService],component : EnvoiComponent},
   { path: 'retrait' , canActivate: [AuthGuardService], component : RetraitComponent},
   { path: 'adduser' , canActivate: [AuthGuardService], component : AdduserComponent},
-  { path: 'addpartenaire' , canActivate: [AuthGuardService],component:AddpartenaireComponent},
-  { path: '**' ,component: SigninComponent},
-  { path: '',  component: SigninComponent},
+  { path: 'listepartenaire' , canActivate: [AuthGuardService], component : ListepartenaireComponent },
+  { path: 'addcompte' ,canActivate: [AuthGuardService],component:AddcompteComponent},
+  { path: 'addpartenaire' ,component: AddpartenaireComponent},
+  { path: '**' , redirectTo: 'auth/signin' , pathMatch: 'full'},
+  { path: '', redirectTo: 'auth/signin' , pathMatch: 'full'}
 
 
 ];

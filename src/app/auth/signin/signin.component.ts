@@ -14,9 +14,9 @@ export class SigninComponent implements OnInit {
   onLogin(data) {
     this.authService.login(data).subscribe(
       resp => {
-        //  console.log(resp);
+          console.log(resp);
         //  console.log();
-        let jwt = resp.body["token"];
+        let jwt = resp.body;
         this.authService.saveToken(jwt);
         if (this.isAdmin()) {
           this._router.navigate(["/register"]);
