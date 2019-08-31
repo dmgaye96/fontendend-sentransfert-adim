@@ -11,16 +11,16 @@
 
           <div class="card border-0 rounded-0">
             <div class="card-body">
-              <form  #f="ngForm" (ngSubmit)="onSavepart(f.value)" >
+              <form  #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)" >
                 <div class="form-group">
                   <label for="exampleFormControlInput1">NINEA</label>
-                  <input type="texte" class="form-control  rounded-0" name="ninea" id="exampleFormControlInput1"
-                    placeholder="NINEA" ngModel >
+                  <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
+                    placeholder="NINEA" >
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Nom du Partenaire</label>
                   <input type="texte" class="form-control rounded-0" id="exampleFormControlInput1"
-                    placeholder="name@example.com" name="raisonsociale"  ngModel>
+                    placeholder="name@example.com" name="raisonsociale" #raisonsociale required="required"  ngModel>
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Address</label>
@@ -29,8 +29,8 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Telephone</label>
-                  <input type="number" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="Telephone" name="telephone"  ngModel>
+                  <input type="number" #telephone ngModel required="required" min=700000000 max=800000000 name="telephone"  class="form-control  rounded-0" id="exampleFormControlInput1"
+                    placeholder="Telephone" name="telephone">
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Email address</label>
@@ -44,8 +44,8 @@
                 </div>
                 <div class="form-group">
                   <label for="exampleFormControlInput1">Login</label>
-                  <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="Login" name="login"  ngModel>
+                  <input type="text" #login ngModel required="required" name="login" class="form-control" id="username"  class="form-control  rounded-0"
+                    placeholder="Login">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Password</label>
@@ -54,9 +54,13 @@
                   </div>
 
                 <div class="form-group">
+                    <div class="col">
+                        <img alt="" [src]="imageUrl"  style="width: 250px; height:200px">
+
+                    </div>
                   <label>Photo</label>
                   <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="customFile"  name="image_name"  ngModel>
+                    <input  input name="photo" #photo ngModel type="file" #Image accept="image/" (change)="handleFileInput($event.target.files)" class="custom-file-input" >
                     <label class="custom-file-label rounded-0" for="customFile">Photo</label>
                   </div>
                 </div>
