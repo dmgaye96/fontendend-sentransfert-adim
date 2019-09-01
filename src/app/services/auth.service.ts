@@ -34,11 +34,17 @@ roles:Array<string>;
   parseJWT(){
     let jwtHelper= new JwtHelperService();
     let objJWT=jwtHelper.decodeToken(this.jwt);
-
     this.username=objJWT.obj;
-
     this.roles=objJWT.roles;
+    localStorage.setItem('role', objJWT.roles);
+
   }
+  getRole(){
+
+    return localStorage.getItem('role');
+  }
+
+
 
   getToken() {
 

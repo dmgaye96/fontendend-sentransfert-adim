@@ -32,6 +32,9 @@ import { AdduserComponent } from './adduser/adduser.component';
 import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
 import { ListepartenaireComponent } from './listepartenaire/listepartenaire.component';
 import { AddcompteComponent } from './addcompte/addcompte.component';
+import { PartenaireService } from './partenaires.service';
+
+
 
 
 
@@ -61,6 +64,7 @@ import { AddcompteComponent } from './addcompte/addcompte.component';
     ListepartenaireComponent,
     AddcompteComponent,
 
+
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,7 @@ import { AddcompteComponent } from './addcompte/addcompte.component';
     CollapseModule.forRoot(),
     ToastrModule.forRoot()
     ],
-  providers: [AuthService, AuthGuardService  ],
+  providers: [AuthService, AuthGuardService , PartenaireService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

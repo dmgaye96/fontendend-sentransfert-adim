@@ -9,10 +9,14 @@
   <div class="row">
       <div class="col-md-8 mb-4 ">
         <div class="form-group">
-          <form>
-          <label for="exampleInputEmail1">Rechercher un Compte</label>
-          <input type="searche" class="form-control" id="exampleInputEmail1" name="username" ngModel aria-describedby="emailHelp"
-            placeholder="Ajouter un compte">
+          <form  #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)">
+          <label for="exampleInputEmail1">Selectionner un Partenaire</label>
+          <select class="form-control" #partenaire ngModel name="partenaire">
+            <option *ngFor="let p of  partenaires" value="{{p.id}}">{{p.raisonsociale}}</option>
+          </select>
+
+
+          <br> <br>
             <button type="submit" class="btn btn-lightning">Ajouter</button>
           </form>
         </div>
