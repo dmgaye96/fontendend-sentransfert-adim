@@ -52,7 +52,7 @@ private url:string = "http://localhost:8000/api/liste/profile";
 addCompt(compte){
 
   const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
-  const host = "http://localhost:8000/api/compte/new";
+  const hostC = "http://localhost:8000/api/compte/new";
 
 
 
@@ -60,7 +60,33 @@ addCompt(compte){
 
   formData.append('partenaire', compte.partenaire);
 
-  return this.http.post(host, formData , {headers : headers} );
+  return this.http.post(hostC, formData , {headers : headers} );
+
+}
+
+
+getAllcomptess() : Observable<any[]>  {
+
+  const host = "http://localhost:8000/api/liste/compteall";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  return  this.http.get<any>( host, {headers : headers} );
+}
+
+addDepot(depot){
+
+const hostD ="http://localhost:8000/api/depot/new";
+
+const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+
+const formData: FormData = new FormData();
+
+formData.append('compte', depot.montant);
+formData.append('compte', depot.compte);
+
+return this.http.post(hostD, formData , {headers : headers} );
+
 
 }
 

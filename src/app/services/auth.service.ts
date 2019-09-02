@@ -79,14 +79,15 @@ roles:Array<string>;
   logout(){
     localStorage.removeItem('token');
    this.initParams();
-
+   return  this.router.navigate(['auth', 'signin']);
   }
 
 
   initParams(){
     this.jwt=undefined;
-  //  this.username=undefined;
+   this.username=undefined;
     this.roles=undefined;
+
 }
 
 

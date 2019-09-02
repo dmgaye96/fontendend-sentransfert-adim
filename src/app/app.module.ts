@@ -33,6 +33,12 @@ import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component'
 import { ListepartenaireComponent } from './listepartenaire/listepartenaire.component';
 import { AddcompteComponent } from './addcompte/addcompte.component';
 import { PartenaireService } from './partenaires.service';
+import { AddpartanduserComponent } from './addpartanduser/addpartanduser.component';
+import { ComptespartnaireComponent } from './comptespartnaire/comptespartnaire.component';
+import { UserpartenaireComponent } from './userpartenaire/userpartenaire.component';
+import { CompteuserComponent } from './compteuser/compteuser.component';
+import { RembousementComponent } from './rembousement/rembousement.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 
@@ -63,6 +69,12 @@ import { PartenaireService } from './partenaires.service';
     AddpartenaireComponent,
     ListepartenaireComponent,
     AddcompteComponent,
+    AddpartanduserComponent,
+    ComptespartnaireComponent,
+    UserpartenaireComponent,
+    CompteuserComponent,
+    RembousementComponent,
+    TransactionsComponent,
 
 
   ],

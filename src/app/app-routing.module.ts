@@ -17,6 +17,12 @@ import { RetraitComponent } from './retrait/retrait.component';
 import { AddpartenaireComponent } from './addpartenaire/addpartenaire.component';
 import { ListepartenaireComponent } from './listepartenaire/listepartenaire.component';
 import { AddcompteComponent } from './addcompte/addcompte.component';
+import { AddpartanduserComponent } from './addpartanduser/addpartanduser.component';
+import { ComptespartnaireComponent } from './comptespartnaire/comptespartnaire.component';
+import { UserpartenaireComponent } from './userpartenaire/userpartenaire.component';
+import { CompteuserComponent } from './compteuser/compteuser.component';
+import { RembousementComponent } from './rembousement/rembousement.component';
+import { TransactionsComponent } from './transactions/transactions.component';
 
 
 
@@ -37,7 +43,13 @@ const routes: Routes = [
   { path: 'adduser' , canActivate: [AuthGuardService], component : AdduserComponent},
   { path: 'listepartenaire' , canActivate: [AuthGuardService], component : ListepartenaireComponent },
   { path: 'addcompte' ,canActivate: [AuthGuardService],component:AddcompteComponent},
-  { path: 'addpartenaire' ,component: AddpartenaireComponent},
+  { path: 'addpartenaire' , canActivate: [AuthGuardService],component: AddpartenaireComponent},
+  { path: 'comptespartnaire', component:ComptespartnaireComponent,canActivate: [AuthGuardService]},
+  { path:  'addpartanduser' , component:AddpartanduserComponent,canActivate: [AuthGuardService]},
+  { path: 'userpartenaire' ,component:UserpartenaireComponent,canActivate: [AuthGuardService] },
+  { path: 'compteuser', component:CompteuserComponent ,canActivate: [AuthGuardService] },
+  { path: 'rembousement' , component:RembousementComponent ,canActivate: [AuthGuardService]},
+  { path: 'transactions' ,component:TransactionsComponent , canActivate: [AuthGuardService] },
   { path: '**' , redirectTo: 'auth/signin' , pathMatch: 'full'},
   { path: '', redirectTo: 'auth/signin' , pathMatch: 'full'}
 
