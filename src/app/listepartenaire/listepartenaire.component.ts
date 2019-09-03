@@ -2,7 +2,7 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { PartenaireService } from '../partenaires.service';
 
-declare var $;
+
 
 @Component({
   selector: 'app-listepartenaire',
@@ -11,8 +11,8 @@ declare var $;
 })
 export class ListepartenaireComponent implements OnInit {
 
- partenaire = [];
-  dtOption: any = {};
+ partenaire;
+ dtoptions: DataTables.Settings={};
   constructor( private partenaireservice:PartenaireService){
   }
 
@@ -23,15 +23,6 @@ export class ListepartenaireComponent implements OnInit {
       res => this.partenaire = res,
       err => console.log(err)
     )
-
-    this.dtOption = {
-        "paging":   true,
-        "ordering": true,
-        "info":     false,
-    };
-    $(()=>{
-$('table.display').DataTable(this.dtOption);
-});
   }
 
 }

@@ -39,7 +39,7 @@ import { UserpartenaireComponent } from './userpartenaire/userpartenaire.compone
 import { CompteuserComponent } from './compteuser/compteuser.component';
 import { RembousementComponent } from './rembousement/rembousement.component';
 import { TransactionsComponent } from './transactions/transactions.component';
-
+import { DataTablesModule } from 'angular-datatables';
 
 
 
@@ -87,7 +87,8 @@ import { TransactionsComponent } from './transactions/transactions.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    DataTablesModule
     ],
   providers: [AuthService, AuthGuardService , PartenaireService ],
   bootstrap: [AppComponent]

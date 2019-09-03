@@ -9,24 +9,27 @@
   <div class="row">
       <div class="col-md-12 mb-4 ">
           <div  >
-        <table #dataTable class="display" style="width:100%">
-          <thead>
-              <tr>
-                  <th>Nom</th>
-                  <th>NINEA</th>
-                  <th>Adresse</th>
-                  <th>Statut</th>
-              </tr>
-          </thead >
-          <tbody>
-              <tr *ngFor="let partenaires of partenaire" >
-                  <td >{{partenaires.raisonsociale}}</td>
-                  <td>{{partenaires.ninea}}</td>
-                  <td>{{partenaires.adresse}}</td>
-                  <td>{{partenaires.statut}}</td>
-              </tr>
 
-          </tbody>
+      <table datatable [dtOptions]="dtoptions"  datatable class="row-border hover">
+        <thead>
+          <tr>
+            <th> Id</th>
+            <th>Nom</th>
+            <th>NINEA</th>
+            <th>Adresse</th>
+            <th>Statut</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let partenaires of partenaire" >
+          <tr>
+            <td> {{partenaires.id}}</td>
+              <td >{{partenaires.raisonsociale}}</td>
+              <td>{{partenaires.ninea}}</td>
+              <td>{{partenaires.adresse}}</td>
+              <td>{{partenaires.statut}}</td>
+          </tr>
+
+        </tbody>
       </table>
     </div>
 
