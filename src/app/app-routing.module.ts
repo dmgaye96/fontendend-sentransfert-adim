@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TablesComponent } from './pages/tables/tables.component';
-import { FormsComponent } from './pages/forms/forms.component';
+//import { FormsComponent } from './pages/forms/forms.component';
 import { TypographyComponent } from './pages/typography/typography.component';
 import { MapsComponent } from './pages/maps/maps.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
@@ -29,7 +29,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 const routes: Routes = [
 
   { path: 'dashboard', canActivate: [AuthGuardService], component: DashboardComponent},
-  { path: 'forms', canActivate: [AuthGuardService], component: FormsComponent},
+ // { path: 'forms', canActivate: [AuthGuardService], component: FormsComponent},
   { path: 'tables',canActivate: [AuthGuardService] , component: TablesComponent},
   { path: 'typography', canActivate: [AuthGuardService], component: TypographyComponent},
   { path: 'maps', component: MapsComponent},

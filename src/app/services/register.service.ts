@@ -36,7 +36,7 @@ private url:string = "http://localhost:8000/api/liste/profile";
     formData.append('email', register.email);
     formData.append('telephone', register.telephone);
     formData.append('imageName', fileToUpload, fileToUpload.name);
-    formData.append('Profil', register.Profil);
+    formData.append('Profile', register.Profile);
 
     return this.http.post(host, formData , {headers : headers} );
   }
@@ -88,6 +88,25 @@ formData.append('compte', depot.compte);
 return this.http.post(hostD, formData , {headers : headers} );
 
 
+}
+
+
+adduser(partenaire, fileToUpload){
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  const host = "http://localhost:8000/api/user/newuser";
+  const formData: FormData= new FormData();
+  formData.append('login', partenaire.login);
+  formData.append('nom', partenaire.nom);
+  formData.append('telephone', partenaire.telephone);
+  formData.append('password', partenaire.password);
+  formData.append('email', partenaire.email);
+  formData.append('telephone', partenaire.telephone);
+  formData.append('imageName', fileToUpload, fileToUpload.name);
+  formData.append('Profile', partenaire.Profile);
+
+  return this.http.post(host, formData , {headers : headers} );
 }
 
 

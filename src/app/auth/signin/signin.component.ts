@@ -24,7 +24,7 @@ export class SigninComponent implements OnInit {
           this._router.navigate(["/envoi"]);
         } else if (this.isCaissier()) {
           this._router.navigate(["/depot"]);
-        } else this._router.navigate(["/adduser"]);
+        } else this._router.navigate(["/addpartanduser"]);
       },
       err => {}
     );
