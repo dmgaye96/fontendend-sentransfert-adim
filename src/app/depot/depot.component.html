@@ -9,29 +9,61 @@
       <div class="row">
         <div class="col-md-12 mb-4 ">
 
-          <div class="card border-0 rounded-0">
+          <div class="card border-0 rounded">
             <div class="card-body">
-              <form #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)" >
+              <form #imageForm=ngForm (ngSubmit)="onsubmit(imageForm.value)">
                 <div class="form-group">
-                  <label for="exampleFormControlInput1">Montant</label>
-                  <input type="number" class="form-control  rounded-0" id="exampleFormControlInput1"
-                    placeholder="000000 XOF" ngModel #montant name="montant">
+                  <label for="exampleFormControlInput1">Numero de Compte</label>
+                  <input type="text" class="form-control  rounded" id="exampleFormControlInput1"
+                (keyup)="onsubmit($event)"  placeholder="Numero de Compte" ngModel #numerocompte name="numerocompte">
                 </div>
-                <div class="form-group">
-                  <label> Numero de Compte</label>
-                  <div class="custom-file">
-                    <label for="exampleInputEmail1">Selectionner un  Numero de Compte</label>
-                    <select class="form-control" #partenaire ngModel name="partenaire">
-                      <option *ngFor="let p of depot " value="{{p.id}}">{{p.numerocompte}}</option>
-                    </select>
 
-                  </div>
-                </div>
                 <div class="form-group">
-                  <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Ajouter</button>
-
+                  <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Recherchez un Compte</button>
                 </div>
               </form>
+
+              <div *ngFor="let infocompte of infocompte">
+                  <label for="exampleFormControlInput1">Information suplementaire du Compte</label>
+                    <br>
+                  <div class="form-group">
+                      <label for="exampleFormControlInput1">Numero de Compte</label>
+                      <input disable  class="form-control  rounded" value={{infocompte.numerocompte}} disabled>
+                    </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Nom du partenaire</label>
+                  <input type="texte" class="form-control  rounded" value={{infocompte.partenaire.raisonsociale}} disabled>
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Solde</label>
+                  <input type="texte" class="form-control  rounded" value={{infocompte.solde}} disabled >
+                </div>
+                <div class="form-group">
+                  <label for="exampleFormControlInput1">Ninea</label>
+                  <input type="texte" class="form-control  rounded" value={{infocompte.partenaire.ninea}} disabled >
+                </div>
+
+
+
+              </div>
+              <div>
+
+                <form *ngFor="let infocompte of infocompte" #imageForm=ngForm (ngSubmit)="onsubmit1(imageForm.value)">
+
+                  <div class="form-group" >
+                    <label for="exampleFormControlInput1">Montant</label>
+
+                    <input type="text"  #compte name="compte" ngModel={{infocompte.id}} hidden>
+
+                    <input type="number" class="form-control  rounded" id="exampleFormControlInput1"   placeholder="000000 XOF" ngModel #montant name="montant" >
+
+                    <br> <br> <button type="submit" class="btn btn-lightning rounded-0 mb-2 mr-2">Valdez</button>
+                  </div>
+
+                </form>
+
+              </div>
+
             </div>
           </div>
         </div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class RegisterService {
 
 private url:string = "http://localhost:8000/api/liste/profile";
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService ,private router:Router) { }
 
 
   getAllProfil() : Observable<any[]>  {
@@ -65,12 +66,15 @@ addCompt(compte){
 }
 
 
-getAllcomptess() : Observable<any[]>  {
+getAllcomptess(data) {
 
   const host = "http://localhost:8000/api/liste/compteall";
 
   const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
-  return  this.http.get<any>( host, {headers : headers} );
+
+
+
+  return  this.http.post( host, data,{headers : headers} );
 }
 
 addDepot(depot){
@@ -82,10 +86,11 @@ const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.
 
 const formData: FormData = new FormData();
 
-formData.append('compte', depot.montant);
+formData.append('montant', depot.montant);
 formData.append('compte', depot.compte);
 
 return this.http.post(hostD, formData , {headers : headers} );
+
 
 
 }

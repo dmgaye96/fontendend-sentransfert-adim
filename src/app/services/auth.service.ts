@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 
 
 
@@ -12,8 +13,7 @@ import { Observable } from 'rxjs';
 export class AuthService {
 
 
- host: string = "http://localhost:8000/api/login";
-
+host: string = "http://localhost:8000/api/login";
 jwt:string;
 username:string;
 roles:Array<string>;
@@ -21,7 +21,10 @@ roles:Array<string>;
   constructor(private http:HttpClient , private router: Router) { }
 
   login(data){
+
+
     return this.http.post(this.host ,data,{observe: 'response'});
+
   }
    saveToken(jwt :any){
     localStorage.setItem("token" ,jwt['token']);
@@ -77,9 +80,13 @@ roles:Array<string>;
     return !!localStorage.getItem('token')
   }
   logout(){
-    localStorage.removeItem('token');
-   this.initParams();
-   return  this.router.navigate(['auth', 'signin']);
+
+
+      localStorage.removeItem('token');
+      this.initParams();
+
+      return  this.router.navigate(['auth', 'signin']);
+
   }
 
 
@@ -89,7 +96,5 @@ roles:Array<string>;
     this.roles=undefined;
 
 }
-
-
 
 }

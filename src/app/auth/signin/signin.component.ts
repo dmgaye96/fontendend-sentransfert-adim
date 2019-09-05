@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService } from "src/app/services/auth.service";
 import { Router } from "@angular/router";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-signin",
@@ -12,21 +13,56 @@ export class SigninComponent implements OnInit {
 
   ngOnInit() {}
   onLogin(data) {
+
     this.authService.login(data).subscribe(
+
       resp => {
           console.log(resp);
+
         //  console.log();
         let jwt = resp.body;
         this.authService.saveToken(jwt);
         if (this.isAdmin()) {
+
+
           this._router.navigate(["/register"]);
+
+          Swal.fire(
+            'Bienvenu sur SeneTransfert',
+            'Vous etes un superadmin',
+            'success'
+          )
+
         } else if (this.isUser()) {
           this._router.navigate(["/envoi"]);
+
+          Swal.fire(
+            'Bienvenu sur SeneTransfert',
+            'Vous etes un User',
+            'success'
+          )
+
         } else if (this.isCaissier()) {
           this._router.navigate(["/depot"]);
-        } else this._router.navigate(["/addpartanduser"]);
+
+          Swal.fire(
+            'Bienvenu sur SeneTransfert',
+            'Vous etes un Caissier',
+            'success'
+          )
+
+        } else
+        { this._router.navigate(["/addpartanduser"]);
+
+        Swal.fire(
+          'Bienvenu sur SeneTransfert',
+          'Vous etes un Admin Partenaire',
+          'success'
+        )
+        }
+
       },
-      err => {}
+      err => { }
     );
   }
 

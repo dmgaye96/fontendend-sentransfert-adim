@@ -40,6 +40,9 @@ import { CompteuserComponent } from './compteuser/compteuser.component';
 import { RembousementComponent } from './rembousement/rembousement.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { DataTablesModule } from 'angular-datatables';
+import { RegisterService } from './services/register.service';
+import { MaterialModule   } from './material/material.module';
+
 
 
 
@@ -79,7 +82,9 @@ import { DataTablesModule } from 'angular-datatables';
 
   ],
   imports: [
+
     BrowserModule,
+    MaterialModule,
     AppRoutingModule,
     CommonModule,
     HttpClientModule,
@@ -88,9 +93,10 @@ import { DataTablesModule } from 'angular-datatables';
     BrowserAnimationsModule,
     CollapseModule.forRoot(),
     ToastrModule.forRoot(),
-    DataTablesModule
+    DataTablesModule,
+
     ],
-  providers: [AuthService, AuthGuardService , PartenaireService ],
+  providers: [AuthService, AuthGuardService , PartenaireService,RegisterService,PartenaireService  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

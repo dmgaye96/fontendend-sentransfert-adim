@@ -5,36 +5,55 @@
     <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
       <h4 class="mb-4 text-muted">Listes des parternaire</h4>
 
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
 
-  <div class="row">
-      <div class="col-md-12 mb-4 ">
-          <div  >
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource" matSort>
 
-      <table datatable [dtOptions]="dtoptions"  datatable class="row-border hover">
-        <thead>
-          <tr>
-            <th> Id</th>
-            <th>Nom</th>
-            <th>NINEA</th>
-            <th>Adresse</th>
-            <th>Statut</th>
+          <!-- ID Column -->
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+            <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+          </ng-container>
+
+          <!-- raisonsociale Column -->
+          <ng-container matColumnDef="raisonsociale">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> raisonsociale </th>
+            <td mat-cell *matCellDef="let row"> {{row.raisonsociale}}% </td>
+          </ng-container>
+
+          <!-- ninea Column -->
+          <ng-container matColumnDef="ninea">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> ninea </th>
+            <td mat-cell *matCellDef="let row"> {{row.ninea}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="adresse">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> adresse </th>
+            <td mat-cell *matCellDef="let row"> {{row.adresse}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="statut">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> statut </th>
+            <td mat-cell *matCellDef="let row"> {{row.statut}} </td>
+          </ng-container>
+
+          <!-- Color Column -->
+          <ng-container matColumnDef="color">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
+            <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;">
           </tr>
-        </thead>
-        <tbody *ngFor="let partenaires of partenaire" >
-          <tr>
-            <td> {{partenaires.id}}</td>
-              <td >{{partenaires.raisonsociale}}</td>
-              <td>{{partenaires.ninea}}</td>
-              <td>{{partenaires.adresse}}</td>
-              <td>{{partenaires.statut}}</td>
-          </tr>
+        </table>
 
-        </tbody>
-      </table>
-    </div>
-
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
       </div>
-    </div>
+
 
       <router-outlet></router-outlet>
       <hr>
