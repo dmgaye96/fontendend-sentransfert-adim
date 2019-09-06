@@ -4,57 +4,125 @@
   <main>
     <app-sidebaruser></app-sidebaruser>
     <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
-      <h4 class="mb-4 text-muted"> Ajouter un Super Admin ou Caissier</h4>
+      <h4 class="mb-4 text-muted">Retrait</h4>
 
 
   <div class="row">
       <div class="col-md-12 mb-4 ">
 
-        <div class="card border-0 rounded-0">
+        <div class="card border-0 rounded">
           <div class="card-body">
-            <form>
-              <div class="form-group">
-                <label for="exampleFormControlInput1">Email address</label>
-                <input type="email" class="form-control  rounded-0" id="exampleFormControlInput1"
-                  placeholder="name@example.com">
-              </div>
-              <div class="form-group">
-                <label>Custom file input</label>
-                <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="customFile">
-                  <label class="custom-file-label rounded-0" for="customFile">Choose file</label>
-                </div>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect1">Example select</label>
-                <select class="form-control rounded-0" id="exampleFormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlSelect2">Example multiple select</label>
-                <select multiple class="form-control rounded-0" id="exampleFormControlSelect2">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="exampleFormControlTextarea1">Example textarea</label>
-                <textarea class="form-control rounded-0" id="exampleFormControlTextarea1" rows="3"></textarea>
-              </div>
 
-              <div class="form-group">
-                <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
+            <form [formGroup]="retraitf" (ngSubmit)="onsubmit(retraitf.value)" >
 
-              </div>
-            </form>
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Rechercher un Code</label>
+                    <input type="text" class="form-control  rounded" id="exampleFormControlInput1"
+                  (keyup)="onsubmit($event)"  placeholder="Rechercher un Code"   formControlName="code" name="code" >
+                  </div>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Recherchez un Compte</button>
+                    </div>
+
+
+
+            </form >
+
+
+
+
+                <div class="row">
+                    <div class="col-md-12 mb-4 ">
+
+                      <div class="card border-0 rounded">
+                        <div class="card-body">
+
+
+                            <div>
+
+
+
+                                <div class="row">
+                                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+                                    <div class="card border-0 rounded h-100">
+                                      <div class="card-title mb-1 p-3">
+                                        <h5>Envoyeur</h5>
+                                      </div>
+                                      <div class="card-body">
+
+                                          <div class="form-group" *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Nom</label>
+                                            <input type="texte" class="form-control  rounded" value='{{infocode.nomE }}' disabled>
+                                          </div>
+
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Prenom</label>
+                                            <input type="texte" class="form-control  rounded" value='{{infocode.prenomE }}' disabled
+                                              placeholder="Prenom" >
+                                          </div>
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Telephone</label>
+                                            <input type="texte" class="form-control  rounded" value='{{infocode.telephoneE }}' disabled
+                                              placeholder="Telephone" >
+                                          </div>
+
+
+
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Montant</label>
+                                            <input type="texte" class="form-control  rounded" value='{{infocode.montant }}' disabled
+                                            >
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
+                                    <div class="card border-0 rounded-0 h-100">
+                                      <div class="card-title mb-1 p-3">
+                                        <h5>Beneficiaire</h5>
+                                      </div>
+                                      <div class="card-body">
+
+
+
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Nom</label>
+                                            <input type="texte" class="form-control  rounded"
+                                              placeholder="Nom" value='{{infocode.nomB }}' disabled >
+                                          </div>
+
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Prenom</label>
+                                            <input type="texte" class="form-control  rounded"
+                                              placeholder="prenom" value='{{infocode.prenomB }}' disabled >
+                                          </div>
+                                          <div class="form-group"  *ngFor="let infocode of infocode" >
+                                            <label for="exampleFormControlInput1">Telephone</label>
+                                            <input type="texte" class="form-control  rounded"
+                                              placeholder="Telephone" value='{{infocode.telephoneB }}' disabled >
+                                          </div>
+
+
+
+                                          <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Submit</button>
+
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+
+
+
+                              </div>
+
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+
           </div>
         </div>
       </div>

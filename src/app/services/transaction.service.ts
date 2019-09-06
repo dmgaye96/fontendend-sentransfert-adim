@@ -34,4 +34,36 @@ export class TransactionService {
 
 
 
+
+
+getCode(data) {
+
+  const host = "http://localhost:8000/api/user/findcode";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+
+
+  return  this.http.post( host, data,{headers : headers} );
+}
+
+
+Retrait(retrait){
+  const hostD ="http://localhost:8000/api/user/retrait";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+
+  const formData: FormData = new FormData();
+
+  formData.append('code', retrait.code);
+  formData.append('numeropiece', retrait.numeropiece);
+  formData.append('typedepiece', retrait.typedepiece);
+
+  return this.http.post(hostD, formData , {headers : headers} );
+
+
+
+}
+
 }
