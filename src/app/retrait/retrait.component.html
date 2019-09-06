@@ -42,11 +42,11 @@
 
 
 
-                                <div class="row">
+                                <div class="row" >
                                   <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
                                     <div class="card border-0 rounded h-100">
                                       <div class="card-title mb-1 p-3">
-                                        <h5>Envoyeur</h5>
+                                        <h5  *ngFor="let infocode of infocode" >Envoyeur</h5>
                                       </div>
                                       <div class="card-body">
 
@@ -77,9 +77,9 @@
                                     </div>
                                   </div>
                                   <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
-                                    <div class="card border-0 rounded-0 h-100">
+                                    <div class="card border-0 rounded-0 h-100" >
                                       <div class="card-title mb-1 p-3">
-                                        <h5>Beneficiaire</h5>
+                                        <h5  *ngFor="let infocode of infocode" >Beneficiaire</h5>
                                       </div>
                                       <div class="card-body">
 
@@ -102,9 +102,16 @@
                                               placeholder="Telephone" value='{{infocode.telephoneB }}' disabled >
                                           </div>
 
+                                          <form [formGroup]="retraitf" (ngSubmit)="onsubmit1(retraitf.value)" >
+                                              <div class="form-group"  *ngFor="let infocode of infocode" >
+                                                  <label for="exampleFormControlInput1">Numero de Piece</label>
+                                                  <input type="texte" class="form-control  rounded"
+                                                    placeholder="numeropiece"   name="numeropiece" formControlName="numeropiece" >
+                                                </div>
 
+                                          <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Validez</button>
+                                        </form>
 
-                                          <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Submit</button>
 
                                       </div>
                                     </div>
@@ -120,6 +127,9 @@
                       </div>
                     </div>
                   </div>
+
+
+
 
 
 
