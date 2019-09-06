@@ -25,7 +25,7 @@ export class SigninComponent implements OnInit {
         if (this.isAdmin()) {
 
 
-          this._router.navigate(["/register"]);
+          this._router.navigate(["/dashboard"]);
 
           Swal.fire(
             'Bienvenu sur SeneTransfert',

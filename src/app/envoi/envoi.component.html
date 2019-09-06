@@ -4,43 +4,55 @@
   <main>
     <app-sidebaruser></app-sidebaruser>
     <div class="pages container-fluid pt-4 pb-4 pl-4 pr-4 ">
-      <h4 class="mb-4 text-muted"> Evoie</h4>
-<form>
+      <h4 class="mb-4 text-muted"> Envoie</h4>
+<form [formGroup]="envoi" (ngSubmit)="onsubmit(envoi.value)">
 
   <div class="row">
       <div class="col-md-12 mb-4 ">
 
-        <div class="card border-0 rounded-0">
+        <div class="card border-0 rounded">
           <div class="card-body">
 
 
               <div>
 
-                  <h4 class="mb-4 text-muted">Forms </h4>
+
 
                   <div class="row">
                     <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
-                      <div class="card border-0 rounded-0 h-100">
+                      <div class="card border-0 rounded h-100">
                         <div class="card-title mb-1 p-3">
-                          <h5>Basic Form</h5>
+                          <h5>Envoyeur</h5>
                         </div>
                         <div class="card-body">
 
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Nom</label>
+                              <input type="texte" class="form-control  rounded" formControlName="nomE"  name="nomE"
+                                placeholder="Nom Envoyeur">
                             </div>
 
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Prenom</label>
+                              <input type="texte" class="form-control  rounded" formControlName="prenomE"   name="prenomE"
+                                placeholder="Prenom" >
                             </div>
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Telephone</label>
+                              <input type="texte" class="form-control  rounded" formControlName="telephoneE" name="telephoneE"
+                                placeholder="Telephone" >
+                            </div>
+
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Numrero de Piece</label>
+                              <input type="texte" class="form-control  rounded"  formControlName="Numeropiece" name="Numeropiece"
+                                placeholder="Numrero de Piece" >
+                            </div>
+
+                            <div class="form-group">
+                              <label for="exampleFormControlInput1">Montant</label>
+                              <input type="texte" class="form-control  rounded"  formControlName="montant" name="montant"
+                                placeholder="Montant" >
                             </div>
 
 
@@ -52,29 +64,30 @@
                     <div class="col-md-12 col-lg-6 mb-4 align-items-stretch">
                       <div class="card border-0 rounded-0 h-100">
                         <div class="card-title mb-1 p-3">
-                          <h5>Horizontal Form</h5>
+                          <h5>Beneficiaire</h5>
                         </div>
                         <div class="card-body">
 
 
 
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Nom</label>
+                              <input type="texte" class="form-control  rounded"  formControlName="nomB" name="nomB"
+                                placeholder="Nom" >
                             </div>
 
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Prenom</label>
+                              <input type="texte" class="form-control  rounded" name="prenomB"  formControlName="prenomB"
+                                placeholder="prenom" >
                             </div>
                             <div class="form-group">
-                              <label for="exampleFormControlInput1">NINEA</label>
-                              <input type="texte" class="form-control  rounded-0" name="ninea" #ninea ngModel required="required"
-                                placeholder="NINEA" >
+                              <label for="exampleFormControlInput1">Telephone</label>
+                              <input type="texte" class="form-control  rounded" name="telephoneB" formControlName="telephoneB"
+                                placeholder="Telephone" >
                             </div>
-                            <button type="button" class="btn btn-lightning rounded-0 mb-2 mr-2">Submit</button>
+
+                            <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Submit</button>
 
                         </div>
                       </div>

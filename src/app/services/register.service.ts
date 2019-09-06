@@ -32,7 +32,7 @@ private url:string = "http://localhost:8000/api/liste/profile";
     const formData: FormData= new FormData();
     formData.append('login', register.login);
     formData.append('nom', register.nom);
-    formData.append('telephone', register.telephone);
+   // formData.append('telephone', register.telephone);
     formData.append('password', register.password);
     formData.append('email', register.email);
     formData.append('telephone', register.telephone);

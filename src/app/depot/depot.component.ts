@@ -46,7 +46,7 @@ export class DepotComponent implements OnInit {
      .subscribe(
        data=>{
          console.log('done');
-        this.router.navigate(['auth', 'signin']);
+
 
        }, err=>{
         console.log(err);

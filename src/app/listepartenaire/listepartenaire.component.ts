@@ -16,14 +16,9 @@ import { IPartenaire } from '../models/partenaire';
 export class ListepartenaireComponent implements OnInit {
 
 
-  const COLORS: string[] = [
-    'maroon', 'red', 'orange', 'yellow', 'olive', 'green', 'purple', 'fuchsia', 'lime', 'teal',
-    'aqua', 'blue', 'navy', 'black', 'gray'
-  ];
 
-  displayedColumns: string[] = ['id', 'raisonsociale', 'ninea', 'adresse' , 'statut'];
+  displayedColumns: string[] = ['id', 'raisonsociale', 'ninea', 'adresse' , 'statut' ];
   dataSource: MatTableDataSource<IPartenaire>;
-
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -59,5 +54,8 @@ export class ListepartenaireComponent implements OnInit {
     }
   }
 
+  blocker(id: number) {
+    this.partenaireservice.blocker(id);
+  }
 
 }

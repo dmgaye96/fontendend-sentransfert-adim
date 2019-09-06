@@ -52,8 +52,20 @@ export class PartenaireService {
 
 
 
-  
 
+
+blocker(id: number) {
+
+  const hostbloc ="http://localhost:8000/apipartenaires/bloquer/" + id;
+
+
+  const headers = new HttpHeaders().set('Authorization', 'Bearer '  + localStorage.getItem('token'));
+  const dt = {
+    id: id
+  };
+  return this.http.put(hostbloc, dt, {headers : headers} );
+
+}
 
 
 
