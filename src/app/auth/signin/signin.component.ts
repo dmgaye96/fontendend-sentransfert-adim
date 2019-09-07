@@ -18,8 +18,14 @@ export class SigninComponent implements OnInit {
 
       resp => {
           console.log(resp);
+          console.log(resp.body.message2);
+          Swal.fire({
+            type: 'error',
+            title: resp.body.message2,
+          //  text: 'Something went wrong!',
 
-        //  console.log();
+          })
+
         let jwt = resp.body;
         this.authService.saveToken(jwt);
         if (this.isAdmin()) {
@@ -51,18 +57,22 @@ export class SigninComponent implements OnInit {
             'success'
           )
 
-        } else
+        } else if (this.isAdminP)
         { this._router.navigate(["/addpartanduser"]);
 
         Swal.fire(
           'Bienvenu sur SeneTransfert',
           'Vous etes un Admin Partenaire',
           'success'
-        )
-        }
+        )}
+
+
 
       },
-      err => { }
+      err => {
+
+
+      }
     );
   }
 

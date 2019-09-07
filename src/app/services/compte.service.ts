@@ -1,7 +1,9 @@
-/* import { Injectable } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { HttpClient ,HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from './auth.service';
+import { Users } from '../models/users';
+import { ComptePart } from '../models/compte';
 
 
 @Injectable({
@@ -9,19 +11,34 @@ import { AuthService } from './auth.service';
 })
 export class CompteService  {
 
-  constructor(private  http:HttpClient , private authService: AuthService) { }
+  constructor(private  http:HttpClient , private authService: AuthService ,) { }
  host: string = "http://localhost:8000/api/register";
 
 
-Rechercompt(): Observable<any[]>  {
 
+getUser() : Observable<Users[]>  {
 
- const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+  const host = "http://localhost:8000/api/liste/utilisateur";
 
-    return  this.http.get<any>(this.host , {headers : headers} );
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  return  this.http.get<Users[]>( host,{headers : headers} );
 }
 
 
+getcomptepartenaire()  : Observable<ComptePart[]> {
+
+  const host="http://localhost:8000/api/liste/compte";
+
+
+
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  return  this.http.get<ComptePart[]>( host,{headers : headers} );
+
 
 }
- */
+
+}
+

@@ -42,6 +42,7 @@ import { TransactionsComponent } from './transactions/transactions.component';
 import { DataTablesModule } from 'angular-datatables';
 import { RegisterService } from './services/register.service';
 import { MaterialModule   } from './material/material.module';
+import { ContratComponent } from './contrat/contrat.component';
 
 
 
@@ -78,6 +79,7 @@ import { MaterialModule   } from './material/material.module';
     CompteuserComponent,
     RembousementComponent,
     TransactionsComponent,
+    ContratComponent,
 
 
   ],

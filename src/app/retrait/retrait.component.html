@@ -96,6 +96,7 @@
                                             <input type="texte" class="form-control  rounded"
                                               placeholder="prenom" value='{{infocode.prenomB }}' disabled >
                                           </div>
+                                          <div *ngFor="let infocode of infocode" >
                                           <div class="form-group"  *ngFor="let infocode of infocode" >
                                             <label for="exampleFormControlInput1">Telephone</label>
                                             <input type="texte" class="form-control  rounded"
@@ -103,23 +104,27 @@
                                           </div>
 
                                           <form [formGroup]="retraitf" (ngSubmit)="onsubmit1(retraitf.value)" >
-                                              <div class="form-group"  *ngFor="let infocode of infocode" >
+                                              <div class="form-group" >
                                                   <label for="exampleFormControlInput1">Numero de Piece</label>
                                                   <input type="texte" class="form-control  rounded"
                                                     placeholder="numeropiece"   name="numeropiece" formControlName="numeropiece" >
+
+                                                </div>
+                                                <div class="text-danger"  *ngFor="let error of errorMessage.numeropiece">
+                                                    <div *ngIf="retraitf.get('numeropiece').hasError(error.type) &&
+                                                     (retraitf.get('numeropiece').dirty || retraitf.get('numeropiece').touched)">
+                                                        {{error.message}}
+                                                    </div>
                                                 </div>
 
-                                          <button type="submit" class="btn btn-lightning rounded mb-2 mr-2">Validez</button>
+                                          <button  type="submit" class="btn btn-lightning rounded mb-2 mr-2">Validez</button>
                                         </form>
-
+                                      </div>
 
                                       </div>
                                     </div>
                                   </div>
                                 </div>
-
-
-
 
                               </div>
 

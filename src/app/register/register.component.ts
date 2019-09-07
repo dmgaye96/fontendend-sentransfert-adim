@@ -3,6 +3,7 @@ import { RegisterService } from "../services/register.service";
 import { AuthService } from "../services/auth.service";
 import { Router } from "@angular/router";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
+import Swal from 'sweetalert2';
 
 @Component({
   selector: "app-register",
@@ -45,9 +46,23 @@ export class RegisterComponent implements OnInit {
     this.registersService.addregister(data, this.fileToUpload).subscribe(
       data => {
         console.log("done");
+        Swal.fire({
+          type: 'success',
+          title: 'Enregistrement effectif',
+
+        })
+        this.router.navigate(["/listepartenaire"])
+
       },
       err => {
+
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de l enregistrement ',
+        })
+
         console.log(err);
+
       }
     );
   }

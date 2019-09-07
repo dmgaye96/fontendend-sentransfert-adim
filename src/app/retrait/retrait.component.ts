@@ -27,15 +27,11 @@ retrait;
       resp=>{
           console.log(resp);
 
+
          this.infocode = resp;
           console.log(this.infocode);
-        /*   Swal.fire({
-            type: 'error',
-            title: 'Oops...',
-            text: 'resp.',
-            footer: '<a href>Why do I have this issue?</a>'
-          }) */
-        }, err=>{
+
+   }, err=>{
              console.log(err);
            }
          )
@@ -67,23 +63,23 @@ retrait;
     ]),
     numeropiece: new FormControl("", [
       Validators.required,
-      Validators.minLength(9),
-      Validators.maxLength(9),
-      Validators.pattern(/^7[0678]([0-9][0-9][0-9][0-9][0-9][0-9][0-9])/)
+
+
     ]),
     typedepiece: new FormControl("", [
       Validators.required,
       Validators.minLength(3)]) });
 
   errorMessage = {
+
     code: [
       { type: "required", message: "Champ username obligatoire " },
       { type: "minlength", message: "veuillez saisir au minimum 5 lettres" }
     ],
     numeropiece: [
-      { type: "required", message: "Champ numeropiece obligatoire " },
+      { type: "required", message: "Champ numeropiece est obligatoire " },
       { type: "minlength", message: "veuillez saisir au minimum 9 lettres" },
-      { type: "maxlength", message: "veuillez saisir au maximum 9 lettres" },
+
       {
         type: "pattern",
         message: "Ecrivez correctement le numero de numeropiece"

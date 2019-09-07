@@ -1,11 +1,9 @@
 import {Component, ViewChild, OnInit} from '@angular/core';
-import { AuthService } from '../services/auth.service';
 import { PartenaireService } from '../partenaires.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { IPartenaire } from '../models/partenaire';
-
 
 
 @Component({
@@ -24,6 +22,7 @@ export class ListepartenaireComponent implements OnInit {
 
 
  partenaire;
+ etat;
  //dtoptions: DataTables.Settings={};
 
   constructor( private partenaireservice:PartenaireService){
@@ -35,6 +34,7 @@ export class ListepartenaireComponent implements OnInit {
     this. partenaireservice.getPartenaires()
     .subscribe(
       res =>{
+
         this.partenaire = res,
         this.dataSource =new MatTableDataSource(this.partenaire);
         this.dataSource.paginator = this.paginator;
@@ -53,9 +53,21 @@ export class ListepartenaireComponent implements OnInit {
       this.dataSource.paginator.firstPage();
     }
   }
+  //ngOnInit() {}
 
   blocker(id: number) {
-    this.partenaireservice.blocker(id);
+
+    this.partenaireservice.blocker(id).subscribe(
+
+    resp=>{
+
+      this.etat = resp,
+      this.ngOnInit();
+      }, err=>{
+        console.log(err);
+      }
+    )
+
   }
 
 }
