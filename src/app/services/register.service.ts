@@ -75,6 +75,17 @@ getAllcomptess(data) {
   return  this.http.post( host, data,{headers : headers} );
 }
 
+
+getDepocaissier(data) {
+
+  const host ="http://localhost:8000/api/liste/depot";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  return  this.http.post( host, data,{headers : headers} );
+}
+
+
 addDepot(depot){
 
 const hostD ="http://localhost:8000/api/depot/new";

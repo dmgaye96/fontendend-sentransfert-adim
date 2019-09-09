@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../services/register.service';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addcompte',
@@ -19,8 +20,19 @@ export class AddcompteComponent implements OnInit {
         console.log(res);
         this.partenaires=res
 
+        Swal.fire({
+          type: 'success',
+          title: 'Enregistrement effectif',
+
+        })
+
       }, err=>{
         console.log(err);
+
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de l enregistrement ',
+        })
       }
     )
    }
@@ -35,8 +47,17 @@ export class AddcompteComponent implements OnInit {
      .subscribe(
        data=>{
          console.log('done');
+         Swal.fire({
+          type: 'success',
+          title: 'Enregistrement effectif',
+
+        })
 
        }, err=>{
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de l enregistrement ',
+        })
         console.log(err);
        }
      )

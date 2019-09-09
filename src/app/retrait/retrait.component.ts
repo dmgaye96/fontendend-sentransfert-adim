@@ -25,14 +25,26 @@ retrait;
     this.code.getCode(data).subscribe(
 
       resp=>{
+
           console.log(resp);
 
 
          this.infocode = resp;
           console.log(this.infocode);
 
+          Swal.fire({
+            type: 'success',
+            title: 'Retrait effectif',
+
+          })
+
    }, err=>{
              console.log(err);
+
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de Retrait effectif',
+        })
            }
          )
    }
@@ -46,9 +58,19 @@ retrait;
      .subscribe(
        data=>{
          console.log('done');
+         Swal.fire({
+          type: 'success',
+          title: 'Retrait effectif',
+
+        })
 
 
        }, err=>{
+
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de Retrait effectif',
+        })
         console.log(err);
        }
      )

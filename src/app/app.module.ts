@@ -43,6 +43,9 @@ import { DataTablesModule } from 'angular-datatables';
 import { RegisterService } from './services/register.service';
 import { MaterialModule   } from './material/material.module';
 import { ContratComponent } from './contrat/contrat.component';
+//import { HistoriqueComponent } from './historique/historique.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+
 
 
 
@@ -80,6 +83,7 @@ import { ContratComponent } from './contrat/contrat.component';
     RembousementComponent,
     TransactionsComponent,
     ContratComponent,
+  //  HistoriqueComponent,
 
 
   ],
@@ -96,6 +100,7 @@ import { ContratComponent } from './contrat/contrat.component';
     CollapseModule.forRoot(),
     ToastrModule.forRoot(),
     DataTablesModule,
+    PdfViewerModule,
 
     ],
   providers: [AuthService, AuthGuardService , PartenaireService,RegisterService,PartenaireService  ],

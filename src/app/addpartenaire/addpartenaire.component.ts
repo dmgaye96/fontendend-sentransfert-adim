@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PartenaireService } from '../partenaires.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addpartenaire',
@@ -38,8 +39,18 @@ export class AddpartenaireComponent implements OnInit {
           data=>{
             console.log('done');
 
+            Swal.fire({
+              type: 'success',
+              title: 'Enregistrement effectif',
+
+            })
+
 
           }, err=>{
+            Swal.fire({
+              type: 'error',
+              title: 'Echec de l enregistrement ',
+            })
            console.log(err);
           }
         )

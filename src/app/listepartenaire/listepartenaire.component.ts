@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { IPartenaire } from '../models/partenaire';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -63,6 +64,12 @@ export class ListepartenaireComponent implements OnInit {
 
       this.etat = resp,
       this.ngOnInit();
+      Swal.fire({
+        type: 'success',
+        title: 'effectif',
+
+      })
+
       }, err=>{
         console.log(err);
       }

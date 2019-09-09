@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../services/register.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addpartanduser',
@@ -49,9 +50,18 @@ export class AddpartanduserComponent implements OnInit {
      .subscribe(
        data=>{
          console.log('done');
+         Swal.fire({
+          type: 'success',
+          title: 'Enregistrement effectif',
 
+        })
 
        }, err=>{
+
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de l enregistrement ',
+        })
         console.log(err);
        }
      )

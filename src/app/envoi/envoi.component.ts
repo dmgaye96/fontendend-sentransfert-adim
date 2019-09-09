@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 import { TransactionService } from '../services/transaction.service';
 import { Validators, FormControl, FormGroup } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-envoi',
@@ -25,9 +26,19 @@ export class EnvoiComponent implements OnInit {
     this.trans.Envoi(data).subscribe(
       data => {
         console.log("done");
+
+        Swal.fire({
+          type: 'success',
+          title: 'Enregistrement effectif',
+
+        })
       },
       err => {
         console.log(err);
+        Swal.fire({
+          type: 'error',
+          title: 'Echec de l enregistrement ',
+        })
       }
     );
   }

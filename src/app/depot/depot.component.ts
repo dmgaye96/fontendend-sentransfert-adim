@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RegisterService } from '../services/register.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-depot',
@@ -34,6 +35,9 @@ export class DepotComponent implements OnInit {
 
         }, err=>{
              console.log(err);
+
+
+
            }
          )
 
@@ -46,10 +50,19 @@ export class DepotComponent implements OnInit {
      .subscribe(
        data=>{
          console.log('done');
+         Swal.fire({
+          type: 'success',
+          title:'Depot  effectif',
+
+        })
+
 
 
        }, err=>{
         console.log(err);
+
+
+
        }
      )
    }

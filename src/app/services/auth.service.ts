@@ -69,7 +69,7 @@ roles:Array<string>;
     return this.roles.indexOf('ROLE_USER')>=0;
   }
   isAuthenticated(){
-   return this.roles &&( this.isAdmin() || this.isUser() || this.isAdminP() || this.isCaissier() );
+   return this.roles && ( this.isAdmin() || this.isUser() || this.isAdminP() || this.isCaissier() );
   }
   loadToken(){
     this.jwt=localStorage.getItem('token');
