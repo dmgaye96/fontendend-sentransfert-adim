@@ -124,4 +124,36 @@ adduser(partenaire, fileToUpload){
 }
 
 
+
+
+getinfouser(data) {
+
+  const host = "http://localhost:8000/api/liste/utilisateurbyusername";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  return  this.http.post( host, data,{headers : headers} );
+}
+
+
+
+allouer(allouer){
+
+  const hostD ="http://localhost:8000/api/compte/addCompte ";
+
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+
+  const formData: FormData = new FormData();
+
+  formData.append('login', allouer.login);
+  formData.append('compte', allouer.compte);
+
+  return this.http.post(hostD, formData , {headers : headers} );
+
+
+
+  }
+
+
 }

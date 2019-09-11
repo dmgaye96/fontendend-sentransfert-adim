@@ -45,6 +45,7 @@ import { MaterialModule   } from './material/material.module';
 import { ContratComponent } from './contrat/contrat.component';
 //import { HistoriqueComponent } from './historique/historique.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { AloueruncompteComponent } from './aloueruncompte/aloueruncompte.component';
 
 
 
@@ -83,6 +84,7 @@ import { PdfViewerModule } from 'ng2-pdf-viewer';
     RembousementComponent,
     TransactionsComponent,
     ContratComponent,
+    AloueruncompteComponent,
   //  HistoriqueComponent,
 
 

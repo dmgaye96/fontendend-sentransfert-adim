@@ -24,6 +24,7 @@ import { CompteuserComponent } from './compteuser/compteuser.component';
 import { RembousementComponent } from './rembousement/rembousement.component';
 import { TransactionsComponent } from './transactions/transactions.component';
 import { ContratComponent } from './contrat/contrat.component';
+import { AloueruncompteComponent } from './aloueruncompte/aloueruncompte.component';
 
 
 
@@ -52,6 +53,7 @@ const routes: Routes = [
   { path: 'rembousement' , component:RembousementComponent ,canActivate: [AuthGuardService]},
   { path: 'transactions' ,component:TransactionsComponent , canActivate: [AuthGuardService] },
   { path: 'contrat' , component:ContratComponent ,canActivate: [AuthGuardService]},
+  { path: 'aloueruncompte' ,component:AloueruncompteComponent ,canActivate: [AuthGuardService]},
   { path: '**' , redirectTo: 'auth/signin' , pathMatch: 'full'},
   { path: '', redirectTo: 'auth/signin' , pathMatch: 'full'}
 

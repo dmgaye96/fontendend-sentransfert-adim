@@ -19,20 +19,20 @@ export class AddcompteComponent implements OnInit {
  res=>{
         console.log(res);
         this.partenaires=res
-
+/*
         Swal.fire({
           type: 'success',
           title: 'Enregistrement effectif',
 
-        })
+        }) */
 
       }, err=>{
         console.log(err);
 
-        Swal.fire({
+      /*   Swal.fire({
           type: 'error',
           title: 'Echec de l enregistrement ',
-        })
+        }) */
       }
     )
    }
