@@ -65,6 +65,17 @@ blocker(id: number) {
   return this.http.get(hostbloc , {headers : headers} );
 
 }
+blocker1(id: number) {
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+
+  const hostbloc ="http://localhost:8000/api/utilisateur/bloque/"+id;
+
+
+
+  return this.http.get(hostbloc , {headers : headers} );
+
+}
 
 
 

@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Users } from '../models/users';
+import Swal from 'sweetalert2';
+import { PartenaireService } from '../partenaires.service';
 
 @Component({
   selector: 'app-userpartenaire',
@@ -20,8 +22,8 @@ dataSource: MatTableDataSource<Users>;
 @ViewChild(MatSort, {static: true}) sort: MatSort;
 
 infouser;
-
-  constructor( private user:CompteService) { }
+etat;
+  constructor( private user:CompteService , private partenaireservice:PartenaireService) { }
 
   ngOnInit ():void {
 
@@ -49,6 +51,46 @@ infouser;
       this.dataSource.paginator.firstPage();
     }
   }
+
+
+
+
+
+
+  blocker(id: number) {
+
+    this.partenaireservice.blocker1(id).subscribe(
+
+    resp=>{
+
+      this.etat = resp,
+      this.ngOnInit();
+      Swal.fire({
+        type: 'success',
+        title: 'effectif',
+
+      })
+
+      }, err=>{
+        console.log(err);
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        })
+
+        Toast.fire({
+          type: 'success',
+          title: 'Operation effectif'
+        })
+
+        this.ngOnInit();
+      }
+    )
+
+  }
+
 
 
   }

@@ -38,7 +38,7 @@
           <ng-container matColumnDef="statut">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> statut </th>
             <td mat-cell *matCellDef="let row"> <button (click)="blocker(row.id)"
-               [ngClass]="{'btn btn-primary': row.statut=='actif',
+               [ngClass]="{ 'btn btn-primary': row.statut=='actif',
                'btn btn-danger': row.statut=='bloquer'}"> {{row.statut}} </button> </td>
           </ng-container>
 

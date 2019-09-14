@@ -46,6 +46,7 @@ import { ContratComponent } from './contrat/contrat.component';
 //import { HistoriqueComponent } from './historique/historique.component';
 import { PdfViewerModule } from 'ng2-pdf-viewer';
 import { AloueruncompteComponent } from './aloueruncompte/aloueruncompte.component';
+import { NavbarloginComponent } from './navbarlogin/navbarlogin.component';
 
 
 
@@ -85,6 +86,7 @@ import { AloueruncompteComponent } from './aloueruncompte/aloueruncompte.compone
     TransactionsComponent,
     ContratComponent,
     AloueruncompteComponent,
+    NavbarloginComponent,
   //  HistoriqueComponent,
 
 

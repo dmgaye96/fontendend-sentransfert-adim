@@ -72,11 +72,18 @@ export class ListepartenaireComponent implements OnInit {
 
       }, err=>{
         console.log(err);
-        Swal.fire({
-          type: 'success',
-          title: 'effectif',
-
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
         })
+
+        Toast.fire({
+          type: 'success',
+          title: 'Operation effectif'
+        })
+
         this.ngOnInit();
       }
     )
@@ -84,3 +91,4 @@ export class ListepartenaireComponent implements OnInit {
   }
 
 }
+

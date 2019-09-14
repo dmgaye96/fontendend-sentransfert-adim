@@ -54,10 +54,17 @@ export class AddcompteComponent implements OnInit {
         })
 
        }, err=>{
-        Swal.fire({
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000
+        })
+
+        Toast.fire({
           type: 'success',
-          title: 'Enregistrement effectif',
-         })
+          title: 'Enregistrement effectif'
+        })
         console.log(err);
        }
      )
