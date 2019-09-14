@@ -32,18 +32,13 @@ retrait;
          this.infocode = resp;
           console.log(this.infocode);
 
-          Swal.fire({
-            type: 'success',
-            title: 'Retrait effectif',
-
-          })
 
    }, err=>{
              console.log(err);
 
         Swal.fire({
           type: 'error',
-          title: 'Echec de Retrait effectif',
+          title: 'Le code est invalide ou deja retirer',
         })
            }
          )

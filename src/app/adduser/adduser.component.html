@@ -1,7 +1,65 @@
 <div class="content" #content>
-    <h1>BIENVENUE A DAARADJI TRANSFERT</h1>
-    <P>Qu'est-ce que le Lorem Ipsum?
-        Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte. Il n'a pas fait que survivre cinq siècles, mais s'est aussi adapté à la bureautique informatique, sans que son contenu n'en soit modifié. Il a été popularisé dans les années 1960 grâce à la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus récemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker.</P>
-  </div>
+    <aside class="sidebar shadow-sm">
+
+        <div class="sidebar-profile d-flex flex-column justify-content-center pt-5 pb-3">
+          <div class="picture-wrapper mb-4">
+            <div class="user-picture m-auto">
+              <img src="./assets/img/user.jpg" class="img-fluid" alt="">
+            </div>
+          </div>
+          <div class="profile-details text-center pb-4">
+            <p class="mb-0 text-uppercase name">DMG Utlisateur Simple</p>
+            <small class="text-uppercase role">User</small>
+          </div>
+        </div>
+        <div class="sidebar-search pt-1 pb-1 pl-3 pr-3">
+          <input type="search" class="form-control rounded-pill" name="search" placeholder="Search ...">
+        </div>
+        <nav class="sidebar-menu pt-3 pb-3">
+          <div class="menu-header mt-3 mb-2">
+            Liste des Services
+          </div>
+          <ul class="menu-items">
+            <li >
+              <a href="#" routerLink="/compteuser" routerLinkActive="active">
+                <i class="fa fa-tv"></i>
+                <span>Compte</span>
+                <span class="badge badge-warning rounded-0 text-dark p-1">NEW</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" routerLink="/envoi" routerLinkActive="active">
+                <i class="fas fa-file-invoice-dollar"></i>
+                <span>Envoi</span>
+              </a>
+            </li>
+            <li>
+                <a href="#" routerLink="/retrait" routerLinkActive="active">
+                  <i class="fas fa-business-time"></i>
+                  <span>Retrait</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" routerLink="/rembousement" routerLinkActive="active">
+                  <i class="fas fa-search-dollar"></i>
+                  <span>Rembousement</span>
+                </a>
+              </li>
+
+            <li>
+              <a href="#" routerLink="/transactions" routerLinkActive="active">
+                <i class="fa fa-table"></i>
+                <span> Transactions</span>
+              </a>
+            </li>
+
+          </ul>
+          <div class="view-source mb-3">
+
+          </div>
+        </nav>
+      </aside>
+
+
 
   <button (click)="downloadPDF()">Export to PDF</button>

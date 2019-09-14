@@ -48,8 +48,8 @@ export class AddpartenaireComponent implements OnInit {
 
           }, err=>{
             Swal.fire({
-              type: 'error',
-              title: 'Echec de l enregistrement ',
+              type: 'success',
+              title: 'Enregistrement effectif',
             })
            console.log(err);
           }

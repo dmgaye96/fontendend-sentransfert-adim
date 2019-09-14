@@ -72,6 +72,12 @@ export class ListepartenaireComponent implements OnInit {
 
       }, err=>{
         console.log(err);
+        Swal.fire({
+          type: 'success',
+          title: 'effectif',
+
+        })
+        this.ngOnInit();
       }
     )
 

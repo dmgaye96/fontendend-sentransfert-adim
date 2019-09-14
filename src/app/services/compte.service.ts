@@ -29,15 +29,17 @@ getUser() : Observable<Users[]>  {
 getcomptepartenaire()  : Observable<ComptePart[]> {
 
   const host="http://localhost:8000/api/liste/compte";
-
-
-
-
   const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
 
   return  this.http.get<ComptePart[]>( host,{headers : headers} );
+}
 
+getcompteuser()  : Observable<ComptePart[]> {
 
+  const host="http://localhost:8000/api/compte/compteuser";
+  const headers = new HttpHeaders().set("Authorization", "Bearer " + localStorage.getItem('token'));
+
+  return  this.http.get<ComptePart[]>( host,{headers : headers} );
 }
 
 }
