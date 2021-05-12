@@ -25,7 +25,7 @@
     "@fortawesome/fontawesome-free": "^5.10.2",
     "angular-datatables": "^8.0.0",
     "bootstrap": "^4.3.1",
-    "chart.js": "^2.8.0",
+    "chart.js": "^2.9.4",
     "compat": "^1.0.4",
     "core-js": "^3.2.1",
     "datatables.net": "^1.10.19",
